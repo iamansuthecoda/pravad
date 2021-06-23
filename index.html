@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Chat with your loved ones ❤">
+    <link rel="shortcut icon" href="./favicon.ico" type="image/x-icon">
+    <link rel="import" href="./assests/default.cur">
+    <link rel="import" href="./assests/pointer.cur">
+    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/navbar.css">
+    <link rel="stylesheet" href="./css/modal.css">
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/lz-string/1.4.4/lz-string.min.js" crossorigin="anonymous"></script>
+    <script defer src="./js/sec.js"></script>
+    <script defer src="./js/index.js"></script>
+    <script defer src="./js/modal.js"></script>
+	<script defer src="./js/media.js"></script>
+    <title>Pravad</title>
+</head>
+<body>
+    <div id="myModal" class="modal">
+		<div class="modal-content">
+			<span class="close">&times;</span>
+			<p id="joinlink">Link</p>
+			<button style="margin-left: 0;" onclick="copyToClipboard()">Copy</button>
+			<button onclick="shareOnWhatsApp()">Share on WhatsApp</button>
+		</div>
+	</div>
+    <nav class="navbar">
+        <div class="logo">
+            <img src="./svg/logo.svg" alt="logo" title="Pravad">
+        </div>
+        <div class="hamburger">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
+        </div>
+        <ul class="nav-links">
+            <li><img src="./svg/share.svg" width="40px" height="40px" id="share" alt="Share" title="Share"></li>
+            <li><a onclick="showSection(0)">Home</a></li>
+            <li><a onclick="showSection(1)">Group</a></li>
+            <li><a onclick="showSection(2)">Private</a></li>
+            <li><a onclick="showSection(3)">Settings</a></li>
+        </ul>
+    </nav>
+    <main>
+        <section id="home"></section>
+        <section id="group" style="display: none;">
+            <div class="chat-misc"></div>
+            <div class="msgBox" id="grpMsgBox"></div>
+            <div class="msgSendContainer">
+                <input type="text" id="grpMsg">
+                <img id="grpMicStart" src="./svg/mic.svg" alt="Mic" title="Mic">
+                <img id="grpMicStop" src="./svg/micActive.svg" alt="Mic" title="Mic" style="display: none;">
+                <img id="grpSend" src="./svg/send.svg" alt="Send" title="Send">
+            </div>
+        </section>
+        <section id="private" style="display: none;">
+            <div id="priIncMsgs"></div>
+            <div class="msgSendContainer">
+                <input type="text" id="priMsg">
+                <img id="priMicStart" src="./svg/mic.svg" alt="Mic" title="Mic">
+                <img id="priMicStop" src="./svg/micActive.svg" alt="Mic" title="Mic">
+                <img id="priSend" src="./svg/send.svg" alt="Send" title="Send">
+            </div>
+        </section>
+        <section id="settings" style="display: none;">Settings</section>
+    </main>
+</body>
+</html>
