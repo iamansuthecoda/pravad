@@ -142,12 +142,12 @@ socket.on("usersList", (users) => {
 });
 
 socket.on('chatMessageTxt', (data) => {
-    appendMessage(`${data.name}: ${decrypt(data.message, pass)}`, 'L');
+    appendMessage(`${decrypt(data.name, pass)}: ${decrypt(data.message, pass)}`, 'L');
 });
 
 socket.on('chatMessageVoice', (data) => {
     data.audio = LZString.decompress(data.audio);
-    appendMicAudio(decrypt(data.audio, pass), 'L', data.name);
+    appendMicAudio(decrypt(data.audio, pass), 'L', decrypt(data.name, pass));
 });
 
 socket.on('disconnect', () => {
